@@ -6,7 +6,7 @@ import { TaskController } from './tasks.controller'
 const router = express.Router()
 
 router.post(
-  '/add-books',
+  '/',
   RequestValidation.ValidateRequest(TaskValidation.createZodSchema),
   TaskController.addNewTask,
 )

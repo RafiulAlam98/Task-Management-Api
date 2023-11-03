@@ -33,7 +33,7 @@ const getAllTasks = async (filters: ITaskFilters): Promise<ITasks[]> => {
   return result
 }
 const getSingleTask = async (payload: string): Promise<ITasks | null> => {
-  const result = await Tasks.findOne({ _id: payload }).populate('reviews')
+  const result = await Tasks.findOne({ _id: payload })
   return result
 }
 const updateTask = async (

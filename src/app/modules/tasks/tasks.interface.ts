@@ -2,7 +2,7 @@ import { Model } from 'mongoose'
 
 export type ITasks = {
   title: string
-  duration?: string
+  duration?: number
   project?: string
   taskDate: string
   description?: string

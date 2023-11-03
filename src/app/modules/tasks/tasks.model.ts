@@ -9,7 +9,7 @@ const TaskSchema = new Schema<ITasks>(
       unique: true,
     },
     duration: {
-      type: String,
+      type: Number,
       required: false,
     },
     project: {
