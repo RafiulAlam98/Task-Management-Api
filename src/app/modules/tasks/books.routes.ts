@@ -1,7 +1,7 @@
 import express from 'express'
 import { RequestValidation } from '../../middlewares/validateRequest'
-import { BooksValidation } from './books.validation'
-import { BooksController } from './books.controller'
+import { BooksValidation } from './tasks.validation'
+import { BooksController } from './tasks.controller'
 
 
 const router = express.Router()
