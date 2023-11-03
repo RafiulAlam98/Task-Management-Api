@@ -50,6 +50,9 @@ const updateZodSchema = z.object({
     status: z.boolean({
       required_error: 'Status is required',
     }),
+    employee: z.string({
+      required_error: 'Employee is required',
+    }),
   }),
 })
 export const TaskValidation = {

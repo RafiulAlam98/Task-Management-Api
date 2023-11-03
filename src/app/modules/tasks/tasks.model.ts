@@ -33,6 +33,10 @@ const TaskSchema = new Schema<ITasks>(
       type: Boolean,
       required: false,
     },
+    employee: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

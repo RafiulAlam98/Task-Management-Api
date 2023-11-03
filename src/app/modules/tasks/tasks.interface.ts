@@ -8,6 +8,7 @@ export type ITasks = {
   description?: string
   priority?: 'none' | '1st Priority' | '2nd Priority' | '3rd Priority'
   status?: boolean
+  employee: string
 }
 
 export type ITaskFilters = { searchTerm?: string }
