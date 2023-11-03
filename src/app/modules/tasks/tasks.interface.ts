@@ -10,6 +10,6 @@ export type ITasks = {
   status?: boolean
 }
 
-export type IBookFilters = { searchTerm?: string }
+export type ITaskFilters = { searchTerm?: string }
 
 export type TaskModel = Model<ITasks, Record<string, unknown>>

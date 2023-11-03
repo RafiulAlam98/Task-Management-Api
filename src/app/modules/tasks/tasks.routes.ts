@@ -8,16 +8,16 @@ const router = express.Router()
 router.post(
   '/add-books',
   RequestValidation.ValidateRequest(TaskValidation.createZodSchema),
-  TaskController.addNewBooks,
+  TaskController.addNewTask,
 )
-router.get('/:id', TaskController.getSingleBook)
+router.get('/:id', TaskController.getSingleTask)
 router.patch(
   '/:id',
   RequestValidation.ValidateRequest(TaskValidation.updateZodSchema),
-  TaskController.updateOldBook,
+  TaskController.updateTask,
 )
-router.get('/', TaskController.getAllBooks)
-router.delete('/:id', TaskController.deleteBooks)
+router.get('/', TaskController.getAllTasks)
+router.delete('/:id', TaskController.deleteTask)
 
 export const TaskRoutes = {
   router,
