@@ -60,7 +60,7 @@ const deleteTask = async (id: string) => {
   return book
 }
 
-export const BookService = {
+export const TaskService = {
   addNewTask,
   getAllTask,
   getSingleTask,

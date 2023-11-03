@@ -52,7 +52,7 @@ const updateZodSchema = z.object({
     }),
   }),
 })
-export const BooksValidation = {
+export const TaskValidation = {
   createZodSchema,
   updateZodSchema,
 }
