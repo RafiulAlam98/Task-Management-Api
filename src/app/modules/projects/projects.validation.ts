@@ -8,6 +8,9 @@ const createZodSchema = z.object({
     description: z.string({
       required_error: 'Description is required',
     }),
+    employee: z.string({
+      required_error: 'Employee is required',
+    }),
   }),
 })
 const updateZodSchema = z.object({
