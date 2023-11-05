@@ -5,7 +5,7 @@ const createZodSchema = z.object({
     title: z.string({
       required_error: 'Title is required',
     }),
-    duration: z.number({
+    duration: z.string({
       required_error: 'Duration is required',
     }),
     project: z.string({
@@ -21,7 +21,7 @@ const createZodSchema = z.object({
     priority: z.string({
       required_error: 'Priority is required',
     }),
-    status: z.boolean({
+    status: z.string({
       required_error: 'Status is required',
     }),
   }),
@@ -31,7 +31,7 @@ const updateZodSchema = z.object({
     title: z.string({
       required_error: 'Title is required',
     }),
-    duration: z.number({
+    duration: z.string({
       required_error: 'Duration is required',
     }),
     project: z.string({
@@ -47,7 +47,7 @@ const updateZodSchema = z.object({
     priority: z.string({
       required_error: 'Priority is required',
     }),
-    status: z.boolean({
+    status: z.string({
       required_error: 'Status is required',
     }),
     employee: z.string({

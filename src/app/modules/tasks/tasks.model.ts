@@ -9,7 +9,7 @@ const TaskSchema = new Schema<ITasks>(
       unique: true,
     },
     duration: {
-      type: Number,
+      type: String,
       required: false,
     },
     project: {
@@ -30,7 +30,8 @@ const TaskSchema = new Schema<ITasks>(
       required: false,
     },
     status: {
-      type: Boolean,
+      type: String,
+      enum: ['complete', 'incomplete'],
       required: false,
     },
     employee: {

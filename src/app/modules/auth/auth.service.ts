@@ -1,44 +1,53 @@
-import {
-  IRefreshTokenResponse,
-  IUserLogin,
-  IUserLoginResponse,
-} from './auth.interface'
+import { IRefreshTokenResponse, IUserLogin } from './auth.interface'
+
 import { User } from '../user/user.model'
 import httpStatus from 'http-status'
 import ApiError from '../../errors/ApiError'
 import { jwtHelpers } from '../../../helpers/jwtHelpers'
 import config from '../../../config'
-import { Secret } from 'jsonwebtoken'
+import jwt, { Secret } from 'jsonwebtoken'
 
-const loginUser = async (payload: IUserLogin): Promise<IUserLoginResponse> => {
-  const { email, password } = payload
+const loginUser = async (payload: IUserLogin) => {
+  const { email: emailId, password } = payload
 
-  const isUserExists = await User.isUserExists(email)
+  // check user exist
+  const isUserExists = await User.isUserExists(emailId)
+
   if (!isUserExists) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'User does not found')
+    throw new ApiError(httpStatus.BAD_REQUEST, 'User does not exist')
   }
 
+  //matched password
   if (
     isUserExists?.password &&
     !(await User.isPasswordMatched(password, isUserExists?.password))
   ) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Password is incorrect')
   }
-  const { email: userEmail } = isUserExists
 
-  const accessToken = jwtHelpers.createToken(
-    { userEmail },
+  const { email } = isUserExists
+
+  // create access token
+  const accessToken = jwt.sign(
+    {
+      email: isUserExists.email,
+    },
     config.jwt.secret as Secret,
-    config.jwt.secret_expire_in as string,
+    {
+      expiresIn: config.jwt.secret_expire_in,
+    },
   )
+
   const refreshToken = jwtHelpers.createToken(
-    { userEmail },
+    { email },
     config.jwt.refresh_secret as Secret,
     config.jwt.refresh_secret_expire_in as string,
   )
+
   return {
     accessToken,
     refreshToken,
+    emailId,
   }
 }
 
