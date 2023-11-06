@@ -44,7 +44,7 @@
 }
 ```
 
-### Task
+### Projects
 - https://task-management-api-sigma.vercel.app/api/v1/projects (post)[add projects]
 - https://task-management-api-sigma.vercel.app/api/v1/projects (get)[get all projects]
 
