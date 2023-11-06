@@ -11,8 +11,8 @@
 ### Sample User Sign Up json type
 ```
 {
-    "name":"abc",
-    "email":"abc@def.com",
+    "name":"user",
+    "email":"user@user.com",
     "password":"hello1234",
     "phoneNo":"0171045693",
     "photo":"photo"
@@ -41,5 +41,17 @@
   "priority": "1st Priority",
   "status": false,
   "employee":"abc@def.com"
+}
+```
+
+### Task
+- https://task-management-api-sigma.vercel.app/api/v1/projects (post)[add projects]
+- https://task-management-api-sigma.vercel.app/api/v1/projects (get)[get all projects]
+
+  ```
+{
+  "title": "Rotasheet",
+  "description": "ERP Solution",
+  "employee":"user@user.com"
 }
 ```
