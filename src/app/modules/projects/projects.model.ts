@@ -6,7 +6,6 @@ const ProjectSchema = new Schema<IProjects>(
     title: {
       type: String,
       required: true,
-      unique: true,
     },
     description: {
       type: String,

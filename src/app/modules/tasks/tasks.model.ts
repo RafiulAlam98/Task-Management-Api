@@ -6,7 +6,6 @@ const TaskSchema = new Schema<ITasks>(
     title: {
       type: String,
       required: true,
-      unique: true,
     },
     duration: {
       type: String,
